@@ -23,11 +23,10 @@ public class SelfServicesMechanic {
     //private HashMap<String, Double> dishTypes = new HashMap<>();
 
     public SelfServicesMechanic() {
+
     }
 
     public void load() {
-
-
         //main dish
         HashMap<String,Double> mcNuggetsTypes = new HashMap<>();
         mcNuggetsTypes.put("spicy", 5.0);
@@ -40,7 +39,6 @@ public class SelfServicesMechanic {
         dishByName.put("mcBurger", mcBurgerTypes);
 
         //desserts
-
         HashMap<String,Double> vanillaConeTypes = new HashMap<>();
         vanillaConeTypes.put("regular", 1.0);
         dishByName.put("vanilla cone", vanillaConeTypes);
