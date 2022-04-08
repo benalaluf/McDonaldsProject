@@ -20,7 +20,7 @@ public class SelfServicesMechanic {
     private List<Dish> dishes = new ArrayList<>();
 
     private HashMap<String, HashMap<String, Double>> dishByName = new HashMap<>();
-    private HashMap<String, Double> dishTypes = new HashMap<>();
+    //private HashMap<String, Double> dishTypes = new HashMap<>();
 
     public SelfServicesMechanic() {
     }
