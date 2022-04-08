@@ -2,8 +2,6 @@ package com.myProject.SelfServicesMechin;
 
 import com.myProject.IndividualDishes.Dessert;
 import com.myProject.IndividualDishes.Dish;
-import com.myProject.IndividualDishes.MainDish;
-import com.myProject.Meal.MealBase;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -12,6 +10,7 @@ public class SelfServicesMechanic {
 
     private final Random rnd = new Random();
     private final Scanner scn = new Scanner(System.in);
+    //TODO to use this array
     private final int[] orderNumberArray = new int[10];
     private int orderNumber;
     private String clientName;
@@ -31,30 +30,30 @@ public class SelfServicesMechanic {
         // we are not arabs we are better...
         //TODO find solution for the arab rookie mistake if i care?
         //main dish
-        HashMap<String,Double> mcNuggetsTypes = new HashMap<>();
+        HashMap<String, Double> mcNuggetsTypes = new HashMap<>();
         mcNuggetsTypes.put("spicy", 5.0);
         mcNuggetsTypes.put("regular", 4.0);
         dishByName.put("mcNuggets", mcNuggetsTypes);
 
-        HashMap<String,Double> mcBurgerTypes = new HashMap<>();
+        HashMap<String, Double> mcBurgerTypes = new HashMap<>();
         mcBurgerTypes.put("bigMac", 6.0);
         mcBurgerTypes.put("cheeseBurger", 5.0);
         dishByName.put("mcBurger", mcBurgerTypes);
 
         //desserts
-        HashMap<String,Double> vanillaConeTypes = new HashMap<>();
+        HashMap<String, Double> vanillaConeTypes = new HashMap<>();
         vanillaConeTypes.put("regular", 1.0);
         dishByName.put("vanilla cone", vanillaConeTypes);
 
-        HashMap<String,Double> mcFlurryTypes = new HashMap<>();
+        HashMap<String, Double> mcFlurryTypes = new HashMap<>();
         mcFlurryTypes.put("oreo", 3.5);
         mcFlurryTypes.put("mnm", 4.0);
         dishByName.put("mcFlurry", mcFlurryTypes);
 
-        HashMap<String,Double> ShakeTypes = new HashMap<>();
+        HashMap<String, Double> ShakeTypes = new HashMap<>();
         ShakeTypes.put("strawBerry", 5.0);
         ShakeTypes.put("chocolate", 5.0);
-        ShakeTypes.put("vanilla",5.0);
+        ShakeTypes.put("vanilla", 5.0);
         dishByName.put("Shake", ShakeTypes);
 
         for (var v : dishByName.entrySet()) {
@@ -70,8 +69,8 @@ public class SelfServicesMechanic {
             askClientName();
             setOrderNumber();
             setCurrentDateAndTime();
-            recipe(name,type);
-        }else {
+            recipe(name, type);
+        } else {
             System.out.println("you enter invalid name/type of desserts aka null");
         }
     }
@@ -83,12 +82,12 @@ public class SelfServicesMechanic {
         System.out.println("client name - " + clientName);
         System.out.println("time of deal - " + currentDateAndTime);
         System.out.println("ordering details - ");
-        System.out.println("1 x "+ name+" type:" +type);
+        System.out.println("1 x " + name + " type:" + type);
         System.out.println("THE TOTAL PRICE IS " + totalPrice + "$");
         System.out.println("---------------------------------");
 
     }
-
+    //TODO make it so that there is no way that two same order number
     public void setOrderNumber() {
         orderNumber = rnd.nextInt(101) + 1;
     }
