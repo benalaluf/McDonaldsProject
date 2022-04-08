@@ -6,31 +6,39 @@ import com.myProject.Meal.MealBase;
 import com.myProject.SelfServicesMechin.SelfServicesMechanic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class McDonaldsApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        Group root = new Group();
+        Scene scene = new Scene(root, Color.GRAY);
+        Image icon = new Image("file:src/mcdonad.png");
+
+        stage.getIcons().add(icon);
+        stage.setResizable(false);
+        stage.setWidth(420);
+        stage.setHeight(420);
+        stage.setFullScreen(false);
+        stage.setFullScreenExitHint("Welcome to mcdonalds");
+        stage.setTitle("McDonalds");
         stage.setScene(scene);
         stage.show();
-        Meal d = new MealBase(null,null,null,null);
     }
 
 
     public static void main(String[] args) {
-      //  launch();
-        //TODO figure out how the fuck i syso this
-        // i did it ezzzz
+        launch();
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
         selfServicesMechanic.load();
-        //TODO make order one method
+        //TODO The bug that make me order mcnuggets type oreo
         selfServicesMechanic.order("vanilla cone","regular");
-        selfServicesMechanic.order("mcNuggets", "oreo");
+        selfServicesMechanic.order("mcNuggets", "Spicy");
     }
 }
