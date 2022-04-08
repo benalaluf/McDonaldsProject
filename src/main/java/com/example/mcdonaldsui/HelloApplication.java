@@ -1,5 +1,9 @@
 package com.example.mcdonaldsui;
 
+import com.myProject.Meal.Main;
+import com.myProject.Meal.Meal;
+import com.myProject.Meal.MealBase;
+import com.myProject.SelfServicesMechin.SelfServicesMechanic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,11 +19,16 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+        Meal d = new MealBase(null,null,null,null);
     }
 
 
     public static void main(String[] args) {
-        launch();
-
+      //  launch();
+        //TODO figure out how the fuck i syso this
+        // i did it ezzzz
+        SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
+        selfServicesMechanic.load();
+        selfServicesMechanic.order("Vanilla cone","regular");
     }
 }

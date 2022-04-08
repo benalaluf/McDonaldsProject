@@ -19,4 +19,8 @@ public abstract class Dish {
     public String getName() {
         return name;
     }
+
+    public String getType() {
+        return type;
+    }
 }
