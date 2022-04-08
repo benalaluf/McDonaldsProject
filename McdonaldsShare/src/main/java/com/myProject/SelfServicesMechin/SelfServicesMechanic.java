@@ -17,13 +17,10 @@ public class SelfServicesMechanic {
     private String clientName;
     private String currentDateAndTime;
     private double totalPrice;
-    private List<Dessert> desserts = new ArrayList<>();
-    private List<MainDish> mainDishes = new ArrayList<>();
+    private List<Dish> dishes = new ArrayList<>();
 
-    private HashMap<String, HashMap<String, Double>> dessertsByName = new HashMap<>();
-    private HashMap<String, HashMap<String, Double>> mainDishSByName = new HashMap<>();
-    private HashMap<String, Double> dessertTypes = new HashMap<>();
-    private HashMap<String, Double> mainDishTypes = new HashMap<>();
+    private HashMap<String, HashMap<String, Double>> dishByName = new HashMap<>();
+    private HashMap<String, Double> dishTypes = new HashMap<>();
 
     public SelfServicesMechanic() {
     }
@@ -32,49 +29,36 @@ public class SelfServicesMechanic {
 
 
         //main dish
-        mainDishTypes.put("Spicy", 5.0);
-        mainDishTypes.put("Regular", 4.0);
-        mainDishSByName.put("Nuggets", mainDishTypes);
+        dishTypes.put("Spicy", 5.0);
+        dishTypes.put("Regular", 4.0);
+        dishByName.put("Nuggets", dishTypes);
 
-        mainDishTypes = new HashMap<>();
-        mainDishTypes.put("BigMac", 6.0);
-        mainDishTypes.put("CheeseBurger", 5.0);
-        mainDishSByName.put("McBurger", mainDishTypes);
+        dishTypes.put("BigMac", 6.0);
+        dishTypes.put("CheeseBurger", 5.0);
+        dishByName.put("McBurger", dishTypes);
 
         //desserts
-        dessertTypes.put("regular", 1.0);
-        dessertsByName.put("Vanilla cone", dessertTypes);
+        dishTypes.put("regular", 1.0);
+        dishByName.put("Vanilla cone", dishTypes);
 
-        dessertTypes = new HashMap<>();
-        dessertTypes.put("oreo", 3.5);
-        dessertTypes.put("mnm", 4.0);
-        dessertsByName.put("McFlurry", dessertTypes);
+        dishTypes.put("oreo", 3.5);
+        dishTypes.put("mnm", 4.0);
+        dishByName.put("McFlurry", dishTypes);
         //.....
         //desserts.put("Shake", 1.0);
         //desserts.put("Sundae", 1.0);
-        for (var v : dessertsByName.entrySet()) {
+        for (var v : dishByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
-                desserts.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())));
+                dishes.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())));
             }
         }
     }
 
+
     //TODO make order one method :(
-    public void orderMainDish(String name, String type) {
-        if (!(null == mainDishSByName.get(name)) && !(null == mainDishSByName.get(name).get(type))) {
-            setTotalPrice(mainDishSByName.get(name).get(type));
-            askClientName();
-            setOrderNumber();
-            setCurrentDateAndTime();
-            recipe(name, type);
-        } else {
-            System.out.println("you enter invalid name/type of desserts aka null");
-        }
-    }
-    //TODO make order one method :(
-    public void orderDessert(String name, String type) {
-        if (!(null == dessertsByName.get(name)) && !(null == dessertsByName.get(name).get(type))) {
-            setTotalPrice(dessertsByName.get(name).get(type));
+    public void order(String name, String type) {
+        if (!(null == dishByName.get(name)) && !(null == dishByName.get(name).get(type))) {
+            setTotalPrice(dishByName.get(name).get(type));
             askClientName();
             setOrderNumber();
             setCurrentDateAndTime();
