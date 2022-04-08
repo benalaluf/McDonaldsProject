@@ -1,13 +1,14 @@
 package com.myProject.Meal;
 
 import com.myProject.IndividualDishes.Dish;
+import com.myProject.IndividualDishes.MainDish;
 import com.myProject.Meal.MealType.ChipsType;
 import com.myProject.Meal.MealType.DrinkType;
 import com.myProject.Meal.MealType.MealSizeType;
 
 public class MealBase implements Meal {
 
-    private final Dish dish;
+    private final MainDish mainDish;
 
     private DrinkType drink;
     private ChipsType chips;
@@ -33,8 +34,8 @@ public class MealBase implements Meal {
     private double mealSizeMultiply;
 
 
-    public MealBase(Dish dish, DrinkType drink, ChipsType chips, MealSizeType mealSize) {
-        this.dish = dish;
+    public MealBase(MainDish mainDish, DrinkType drink, ChipsType chips, MealSizeType mealSize) {
+        this.mainDish = mainDish;
         this.drink = drink;
         this.chips = chips;
         this.mealSize = mealSize;
@@ -83,7 +84,7 @@ public class MealBase implements Meal {
         setDrinkPrice();
         setChipsPrice();
         setMealSizeMultiply();
-        price = (drinkPrice + chipsPrice)*mealSizeMultiply + dish.getPrice() ;
+        price = (drinkPrice + chipsPrice)*mealSizeMultiply + mainDish.getPrice() ;
     }
 
     public double getPrice() {

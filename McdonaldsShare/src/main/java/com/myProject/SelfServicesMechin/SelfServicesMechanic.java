@@ -1,6 +1,6 @@
 package com.myProject.SelfServicesMechin;
 
-import com.myProject.Desserts.Dessert;
+import com.myProject.IndividualDishes.Dessert;
 import com.myProject.IndividualDishes.Dish;
 import com.myProject.Meal.MealBase;
 
