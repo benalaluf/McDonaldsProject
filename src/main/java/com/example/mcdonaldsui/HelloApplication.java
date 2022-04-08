@@ -29,6 +29,8 @@ public class HelloApplication extends Application {
         // i did it ezzzz
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
         selfServicesMechanic.load();
-        selfServicesMechanic.order("Vanilla cone","regular");
+        //TODO make order one method
+        selfServicesMechanic.orderDessert("Vanilla cone","regular");
+        selfServicesMechanic.orderMainDish("Nuggets", "Spicy");
     }
 }

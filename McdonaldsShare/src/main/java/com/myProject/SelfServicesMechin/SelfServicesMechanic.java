@@ -22,6 +22,8 @@ public class SelfServicesMechanic {
 
     private HashMap<String, HashMap<String, Double>> dessertsByName = new HashMap<>();
     private HashMap<String, HashMap<String, Double>> mainDishSByName = new HashMap<>();
+    private HashMap<String, Double> dessertTypes = new HashMap<>();
+    private HashMap<String, Double> mainDishTypes = new HashMap<>();
 
     public SelfServicesMechanic() {
     }
@@ -29,7 +31,7 @@ public class SelfServicesMechanic {
     public void load() {
 
 
-        HashMap<String, Double> mainDishTypes = new HashMap<>();
+        //main dish
         mainDishTypes.put("Spicy", 5.0);
         mainDishTypes.put("Regular", 4.0);
         mainDishSByName.put("Nuggets", mainDishTypes);
@@ -40,7 +42,6 @@ public class SelfServicesMechanic {
         mainDishSByName.put("McBurger", mainDishTypes);
 
         //desserts
-        HashMap<String, Double> dessertTypes = new HashMap<>();
         dessertTypes.put("regular", 1.0);
         dessertsByName.put("Vanilla cone", dessertTypes);
 
@@ -58,37 +59,39 @@ public class SelfServicesMechanic {
         }
     }
 
-    public void order(MealBase meal) {
-        setTotalPrice(meal.getPrice());
-        askClientName();
-        setOrderNumber();
-        setCurrentDateAndTime();
-        recipe();
+
+    public void orderMainDish(String name, String type) {
+        if (!(null == mainDishSByName.get(name)) && !(null == mainDishSByName.get(name).get(type))) {
+            setTotalPrice(mainDishSByName.get(name).get(type));
+            askClientName();
+            setOrderNumber();
+            setCurrentDateAndTime();
+            recipe(name, type);
+        } else {
+            System.out.println("you enter invalid name/type of desserts aka null");
+        }
     }
 
-    public void order(Dish dish) {
-        setTotalPrice(dish.getPrice());
-        askClientName();
-        setOrderNumber();
-        setCurrentDateAndTime();
-        recipe();
-
+    public void orderDessert(String name, String type) {
+        if (!(null == dessertsByName.get(name)) && !(null == dessertsByName.get(name).get(type))) {
+            setTotalPrice(dessertsByName.get(name).get(type));
+            askClientName();
+            setOrderNumber();
+            setCurrentDateAndTime();
+            recipe(name,type);
+        }else {
+            System.out.println("you enter invalid name/type of desserts aka null");
+        }
     }
 
-    public void order(String name, String type) {
-        setTotalPrice(dessertsByName.get(name).get(type));
-        askClientName();
-        setOrderNumber();
-        setCurrentDateAndTime();
-        recipe();
-    }
-
-    public void recipe() {
+    public void recipe(String name, String type) {
         //TODO make GUI
         System.out.println("ORDER NUMBER - " + orderNumber);
         System.out.println("---------------------------------");
         System.out.println("client name - " + clientName);
         System.out.println("time of deal - " + currentDateAndTime);
+        System.out.println("ordering details - ");
+        System.out.println("1 x "+ name+" type:" +type);
         System.out.println("THE TOTAL PRICE IS " + totalPrice + "$");
         System.out.println("---------------------------------");
 
