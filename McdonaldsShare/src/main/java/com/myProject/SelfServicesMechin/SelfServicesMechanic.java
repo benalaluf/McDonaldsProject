@@ -29,31 +29,39 @@ public class SelfServicesMechanic {
 
 
         //main dish
-        dishTypes.put("Spicy", 5.0);
-        dishTypes.put("Regular", 4.0);
-        dishByName.put("Nuggets", dishTypes);
+        HashMap<String,Double> mcNuggetsTypes = new HashMap<>();
+        mcNuggetsTypes.put("spicy", 5.0);
+        mcNuggetsTypes.put("regular", 4.0);
+        dishByName.put("mcNuggets", mcNuggetsTypes);
 
-        dishTypes.put("BigMac", 6.0);
-        dishTypes.put("CheeseBurger", 5.0);
-        dishByName.put("McBurger", dishTypes);
+        HashMap<String,Double> mcBurgerTypes = new HashMap<>();
+        mcBurgerTypes.put("bigMac", 6.0);
+        mcBurgerTypes.put("cheeseBurger", 5.0);
+        dishByName.put("mcBurger", mcBurgerTypes);
 
         //desserts
-        dishTypes.put("regular", 1.0);
-        dishByName.put("Vanilla cone", dishTypes);
 
-        dishTypes.put("oreo", 3.5);
-        dishTypes.put("mnm", 4.0);
-        dishByName.put("McFlurry", dishTypes);
-        //.....
-        //desserts.put("Shake", 1.0);
-        //desserts.put("Sundae", 1.0);
+        HashMap<String,Double> vanillaConeTypes = new HashMap<>();
+        vanillaConeTypes.put("regular", 1.0);
+        dishByName.put("vanilla cone", vanillaConeTypes);
+
+        HashMap<String,Double> mcFlurryTypes = new HashMap<>();
+        mcFlurryTypes.put("oreo", 3.5);
+        mcFlurryTypes.put("mnm", 4.0);
+        dishByName.put("mcFlurry", mcFlurryTypes);
+
+        HashMap<String,Double> ShakeTypes = new HashMap<>();
+        ShakeTypes.put("strawBerry", 5.0);
+        ShakeTypes.put("chocolate", 5.0);
+        ShakeTypes.put("vanilla",5.0);
+        dishByName.put("Shake", ShakeTypes);
+
         for (var v : dishByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
                 dishes.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())));
             }
         }
     }
-
 
     //TODO make order one method :(
     public void order(String name, String type) {

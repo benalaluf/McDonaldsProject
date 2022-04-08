@@ -30,7 +30,7 @@ public class HelloApplication extends Application {
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
         selfServicesMechanic.load();
         //TODO make order one method
-        selfServicesMechanic.order("Vanilla cone","regular");
-        selfServicesMechanic.order("Nuggets", "Spicy");
+        selfServicesMechanic.order("vanilla cone","regular");
+        selfServicesMechanic.order("mcNuggets", "oreo");
     }
 }
