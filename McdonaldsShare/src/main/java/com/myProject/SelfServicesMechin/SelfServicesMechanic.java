@@ -27,6 +27,9 @@ public class SelfServicesMechanic {
     }
 
     public void load() {
+        //TODO dont creat thousand hashmaps and be arab, type:gaza
+        // we are not arabs we are better...
+        //TODO find solution for the arab rookie mistake if i care?
         //main dish
         HashMap<String,Double> mcNuggetsTypes = new HashMap<>();
         mcNuggetsTypes.put("spicy", 5.0);
@@ -61,7 +64,6 @@ public class SelfServicesMechanic {
         }
     }
 
-    //TODO make order one method :(
     public void order(String name, String type) {
         if (!(null == dishByName.get(name)) && !(null == dishByName.get(name).get(type))) {
             setTotalPrice(dishByName.get(name).get(type));
