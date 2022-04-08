@@ -59,7 +59,7 @@ public class SelfServicesMechanic {
         }
     }
 
-
+    //TODO make order one method :(
     public void orderMainDish(String name, String type) {
         if (!(null == mainDishSByName.get(name)) && !(null == mainDishSByName.get(name).get(type))) {
             setTotalPrice(mainDishSByName.get(name).get(type));
@@ -71,7 +71,7 @@ public class SelfServicesMechanic {
             System.out.println("you enter invalid name/type of desserts aka null");
         }
     }
-
+    //TODO make order one method :(
     public void orderDessert(String name, String type) {
         if (!(null == dessertsByName.get(name)) && !(null == dessertsByName.get(name).get(type))) {
             setTotalPrice(dessertsByName.get(name).get(type));
