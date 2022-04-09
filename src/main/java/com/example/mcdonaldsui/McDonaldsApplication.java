@@ -1,5 +1,8 @@
 package com.example.mcdonaldsui;
 
+import com.myProject.IndividualDishes.Dessert;
+import com.myProject.IndividualDishes.Dish;
+import com.myProject.IndividualDishes.MainDish;
 import com.myProject.Meal.Main;
 import com.myProject.Meal.Meal;
 import com.myProject.Meal.MealBase;
@@ -34,11 +37,9 @@ public class McDonaldsApplication extends Application {
 
 
     public static void main(String[] args) {
-        launch();
+        //launch();
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
         selfServicesMechanic.load();
         //TODO The bug that make me order mcnuggets type oreo
-        selfServicesMechanic.order("vanilla cone","regular");
-        selfServicesMechanic.order("mcNuggets", "Spicy");
-    }
-}
+        selfServicesMechanic.order("mcNugget","spicy");
+}}

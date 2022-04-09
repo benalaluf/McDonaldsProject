@@ -16,9 +16,9 @@ public class SelfServicesMechanic {
     private String clientName;
     private String currentDateAndTime;
     private double totalPrice;
-    private List<Dish> dishes = new ArrayList<>();
+    public List<Dish> dishes = new ArrayList<>();
 
-    private HashMap<String, HashMap<String, Double>> dishByName = new HashMap<>();
+    private HashMap<String, HashMap<String,Double>> dishByName = new HashMap<>();
     //private HashMap<String, Double> dishTypes = new HashMap<>();
 
     public SelfServicesMechanic() {
@@ -63,15 +63,31 @@ public class SelfServicesMechanic {
         }
     }
 
-    public void order(String name, String type) {
-        if (!(null == dishByName.get(name)) && !(null == dishByName.get(name).get(type))) {
-            setTotalPrice(dishByName.get(name).get(type));
+    public void order(Dish dish) {
+        if (!(null == dishByName.get(dish.getName())) && !(null == dishByName.get(dish.getName()).get(dish.getType()))) {
+            setTotalPrice(dishByName.get(dish.getName()).get(dish.getType()));
             askClientName();
             setOrderNumber();
             setCurrentDateAndTime();
-            recipe(name, type);
+            recipe(dish.getName(), dish.getType());
         } else {
             System.out.println("you enter invalid name/type of desserts aka null");
+        }
+    }
+
+    public void order(String name, String type){
+        int valid =0;
+        for (int i = 0; i < dishes.size(); i++) {
+            if(dishes.get(i).getName().equals(name) && dishes.get(i).getType().equals(type)){
+                askClientName();
+                setOrderNumber();
+                setCurrentDateAndTime();
+                recipe(dishes.get(i).getName(), dishes.get(i).getType());
+                valid++;
+            }
+        }
+        if (valid!=1){
+            System.out.println("you entered unvalid shit");
         }
     }
 
