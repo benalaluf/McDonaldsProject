@@ -158,7 +158,7 @@ public class SelfServicesMechanic {
         }
     }
 
-    public void order(String mainDish, String dishType, String snacks, String snackType, String beverages, String beveragesType) {
+    public void orderMeal(String mainDish, String dishType, String snacks, String snackType, String beverages, String beveragesType) {
         int valid = 0;
 
         for (MainDish dish : mainDishes) {
