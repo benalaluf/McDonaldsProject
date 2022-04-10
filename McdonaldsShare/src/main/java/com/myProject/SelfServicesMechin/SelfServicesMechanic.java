@@ -18,7 +18,7 @@ public class SelfServicesMechanic {
     private double totalPrice;
     public List<Dish> dishes = new ArrayList<>();
 
-    private HashMap<String, HashMap<String,Double>> dishByName = new HashMap<>();
+    private HashMap<String, HashMap<String, Double>> dishByName = new HashMap<>();
     //private HashMap<String, Double> dishTypes = new HashMap<>();
 
     public SelfServicesMechanic() {
@@ -75,10 +75,10 @@ public class SelfServicesMechanic {
         }
     }
 
-    public void order(String name, String type){
-        int valid =0;
+    public void order(String name, String type) {
+        int valid = 0;
         for (int i = 0; i < dishes.size(); i++) {
-            if(dishes.get(i).getName().equals(name) && dishes.get(i).getType().equals(type)){
+            if ((dishes.get(i).getName()) == name && (dishes.get(i).getType()) == type) {
                 askClientName();
                 setOrderNumber();
                 setCurrentDateAndTime();
@@ -86,7 +86,7 @@ public class SelfServicesMechanic {
                 valid++;
             }
         }
-        if (valid!=1){
+        if (valid != 1) {
             System.out.println("you entered unvalid shit");
         }
     }
@@ -103,6 +103,7 @@ public class SelfServicesMechanic {
         System.out.println("---------------------------------");
 
     }
+
     //TODO make it so that there is no way that two same order number
     public void setOrderNumber() {
         orderNumber = rnd.nextInt(101) + 1;

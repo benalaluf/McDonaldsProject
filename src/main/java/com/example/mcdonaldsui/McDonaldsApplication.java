@@ -41,5 +41,6 @@ public class McDonaldsApplication extends Application {
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
         selfServicesMechanic.load();
         //TODO The bug that make me order mcnuggets type oreo
-        selfServicesMechanic.order("mcNugget","spicy");
+        selfServicesMechanic.order("mcNuggets","spicy");
+        selfServicesMechanic.order("mcFlurry", "oreo");
 }}
