@@ -116,6 +116,15 @@ public class SelfServicesMechanic {
 
     }
 
+    /**
+     * //TODO
+     * new idea make order inner class
+     * and by that add a feture that you can order couple
+     * individual dish in the same order!
+     * now to order cola and nuggets is isnt possible to do in the same order
+     * so this will solve all world problems
+     */
+
     public void orderDish(String dishName, String type) {
         int valid = 0;
         for (Dish dish : dishes) {
