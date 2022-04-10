@@ -6,6 +6,7 @@ import com.myProject.Meal.BeveragesAndSides.Snack;
 import com.myProject.IndividualDishes.Dessert;
 import com.myProject.IndividualDishes.Dish;
 import com.myProject.IndividualDishes.MainDish;
+import com.myProject.Meal.Meal;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -50,15 +51,14 @@ public class SelfServicesMechanic {
 
         HashMap<String, Double> mcBurgerTypes = new HashMap<>();
         mcBurgerTypes.put("bigMac", 6.0);
+        mcBurgerTypes.put("doubleBigMac", 8.0);
         mcBurgerTypes.put("cheeseBurger", 5.0);
         mainDishByName.put("mcBurger", mcBurgerTypes);
 
         for (var v : mainDishByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
-                mainDishes.add(new MainDish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
-                dishes.add(new Dish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
+                mainDishes.add(new MainDish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
+                dishes.add(new Dish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
             }
         }
 
@@ -80,10 +80,8 @@ public class SelfServicesMechanic {
 
         for (var v : dessertsByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
-                desserts.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
-                dishes.add(new Dish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
+                desserts.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
+                dishes.add(new Dish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
             }
         }
 
@@ -97,10 +95,8 @@ public class SelfServicesMechanic {
 
         for (var v : beverageByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
-                beverage.add(new Beverages(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
-                sides.add(new Sides(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
+                beverage.add(new Beverages(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
+                sides.add(new Sides(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
             }
         }
 
@@ -113,24 +109,39 @@ public class SelfServicesMechanic {
 
         for (var v : snackByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
-                snack.add(new Snack(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
-                sides.add(new Sides(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
-                });
+                snack.add(new Snack(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
+                sides.add(new Sides(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
             }
         }
 
     }
 
-    public void order(String name, String type) {
+    public void orderDish(String dishName, String type) {
         int valid = 0;
         for (Dish dish : dishes) {
-            if ((dish.getName()) == name && (dish.getType()) == type) {
+            if ((dish.getName()) == dishName && (dish.getType()) == type) {
                 askClientName();
                 setOrderNumber();
                 setCurrentDateAndTime();
                 setTotalPrice(dish.getPrice());
                 recipe(dish.getName(), dish.getType());
+                valid++;
+            }
+        }
+        if (valid != 1) {
+            System.out.println("you entered invalid");
+        }
+    }
+
+    public void orderSideDish(String sideName, String type) {
+        int valid = 0;
+        for (Sides sides : sides) {
+            if ((sides.getName()) == sideName && (sides.getType()) == type) {
+                askClientName();
+                setOrderNumber();
+                setCurrentDateAndTime();
+                setTotalPrice(sides.getPrice());
+                recipe(sides.getName(), sides.getType());
                 valid++;
             }
         }
