@@ -1,5 +1,6 @@
 package com.myProject.SelfServicesMechin;
 
+import com.myProject.BeveragesAndSides.Sides;
 import com.myProject.IndividualDishes.Dessert;
 import com.myProject.IndividualDishes.Dish;
 
@@ -17,9 +18,10 @@ public class SelfServicesMechanic {
     private String currentDateAndTime;
     private double totalPrice;
     public List<Dish> dishes = new ArrayList<>();
+    public List<Sides> sides = new ArrayList<>();
 
     private HashMap<String, HashMap<String, Double>> dishByName = new HashMap<>();
-    //private HashMap<String, Double> dishTypes = new HashMap<>();
+    private HashMap<String,HashMap<String,Double>> sidesByName = new HashMap<>();
 
     public SelfServicesMechanic() {
 
@@ -61,18 +63,24 @@ public class SelfServicesMechanic {
                 dishes.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())));
             }
         }
-    }
 
-    public void order(Dish dish) {
-        if (!(null == dishByName.get(dish.getName())) && !(null == dishByName.get(dish.getName()).get(dish.getType()))) {
-            setTotalPrice(dishByName.get(dish.getName()).get(dish.getType()));
-            askClientName();
-            setOrderNumber();
-            setCurrentDateAndTime();
-            recipe(dish.getName(), dish.getType());
-        } else {
-            System.out.println("you enter invalid name/type of desserts aka null");
-        }
+        //beverages
+        HashMap<String, Double> beveragesTypes = new HashMap<>();
+        beveragesTypes.put("cola", 3.0);
+        beveragesTypes.put("sprite", 2.5);
+        beveragesTypes.put("fanta", 2.5);
+        beveragesTypes.put("lean", 6.9);
+        sidesByName.put("beverage" , beveragesTypes);
+
+        //snacks
+        HashMap<String,Double> SnackTypes = new HashMap<>();
+        SnackTypes.put("french fries", 4.0);
+        SnackTypes.put("potato fries", 6.0);
+        SnackTypes.put("apple slices", 3.0);
+        sidesByName.put("snacks", SnackTypes);
+
+
+
     }
 
     public void order(String name, String type) {
