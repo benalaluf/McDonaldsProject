@@ -3,12 +3,12 @@ package com.myProject.BeveragesAndSides;
 public abstract class Sides {
 
     String name;
-    String kind;
+    String type;
     double price;
 
-    public Sides(String name, String kind, double price) {
+    public Sides(String name, String type, double price) {
         this.name = name;
-        this.kind = kind;
+        this.type = type;
         this.price = price;
     }
 
@@ -16,8 +16,8 @@ public abstract class Sides {
         return name;
     }
 
-    public String getKind() {
-        return kind;
+    public String getType() {
+        return type;
     }
 
     public double getPrice() {

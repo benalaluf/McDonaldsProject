@@ -1,8 +1,11 @@
 package com.myProject.SelfServicesMechin;
 
+import com.myProject.BeveragesAndSides.Beverages;
 import com.myProject.BeveragesAndSides.Sides;
+import com.myProject.BeveragesAndSides.Snack;
 import com.myProject.IndividualDishes.Dessert;
 import com.myProject.IndividualDishes.Dish;
+import com.myProject.IndividualDishes.MainDish;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -17,11 +20,18 @@ public class SelfServicesMechanic {
     private String clientName;
     private String currentDateAndTime;
     private double totalPrice;
-    public List<Dish> dishes = new ArrayList<>();
-    public List<Sides> sides = new ArrayList<>();
 
-    private HashMap<String, HashMap<String, Double>> dishByName = new HashMap<>();
-    private HashMap<String,HashMap<String,Double>> sidesByName = new HashMap<>();
+    public List<Dish> dishes = new ArrayList<>();
+    public List<MainDish> mainDishes = new ArrayList<>();
+    public List<Dessert> desserts = new ArrayList<>();
+    public List<Sides> sides = new ArrayList<>();
+    public List<Beverages> beverage = new ArrayList<>();
+    public List<Snack> snack = new ArrayList<>();
+
+    private HashMap<String, HashMap<String, Double>> mainDishByName = new HashMap<>();
+    private HashMap<String, HashMap<String, Double>> dessertsByName = new HashMap<>();
+    private HashMap<String, HashMap<String, Double>> beverageByName = new HashMap<>();
+    private HashMap<String, HashMap<String, Double>> snackByName = new HashMap<>();
 
     public SelfServicesMechanic() {
 
@@ -31,36 +41,49 @@ public class SelfServicesMechanic {
         //TODO dont creat thousand hashmaps and be arab, type:gaza
         // we are not arabs we are better...
         //TODO find solution for the arab rookie mistake if i care?
+        //TODO something is werid idont know waht
         //main dish
         HashMap<String, Double> mcNuggetsTypes = new HashMap<>();
         mcNuggetsTypes.put("spicy", 5.0);
         mcNuggetsTypes.put("regular", 4.0);
-        dishByName.put("mcNuggets", mcNuggetsTypes);
+        mainDishByName.put("mcNuggets", mcNuggetsTypes);
 
         HashMap<String, Double> mcBurgerTypes = new HashMap<>();
         mcBurgerTypes.put("bigMac", 6.0);
         mcBurgerTypes.put("cheeseBurger", 5.0);
-        dishByName.put("mcBurger", mcBurgerTypes);
+        mainDishByName.put("mcBurger", mcBurgerTypes);
+
+        for (var v : mainDishByName.entrySet()) {
+            for (var pricesByTypes : v.getValue().entrySet()) {
+                mainDishes.add(new MainDish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
+                dishes.add(new Dish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
+            }
+        }
 
         //desserts
         HashMap<String, Double> vanillaConeTypes = new HashMap<>();
         vanillaConeTypes.put("regular", 1.0);
-        dishByName.put("vanilla cone", vanillaConeTypes);
+        dessertsByName.put("vanilla cone", vanillaConeTypes);
 
         HashMap<String, Double> mcFlurryTypes = new HashMap<>();
         mcFlurryTypes.put("oreo", 3.5);
         mcFlurryTypes.put("mnm", 4.0);
-        dishByName.put("mcFlurry", mcFlurryTypes);
+        dessertsByName.put("mcFlurry", mcFlurryTypes);
 
         HashMap<String, Double> ShakeTypes = new HashMap<>();
         ShakeTypes.put("strawBerry", 5.0);
         ShakeTypes.put("chocolate", 5.0);
         ShakeTypes.put("vanilla", 5.0);
-        dishByName.put("Shake", ShakeTypes);
+        dessertsByName.put("Shake", ShakeTypes);
 
-        for (var v : dishByName.entrySet()) {
+        for (var v : dessertsByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
-                dishes.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())));
+                desserts.add(new Dessert(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
+                dishes.add(new Dish(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
             }
         }
 
@@ -70,32 +93,84 @@ public class SelfServicesMechanic {
         beveragesTypes.put("sprite", 2.5);
         beveragesTypes.put("fanta", 2.5);
         beveragesTypes.put("lean", 6.9);
-        sidesByName.put("beverage" , beveragesTypes);
+        beverageByName.put("beverage", beveragesTypes);
+
+        for (var v : beverageByName.entrySet()) {
+            for (var pricesByTypes : v.getValue().entrySet()) {
+                beverage.add(new Beverages(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
+                sides.add(new Sides(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
+            }
+        }
 
         //snacks
-        HashMap<String,Double> SnackTypes = new HashMap<>();
+        HashMap<String, Double> SnackTypes = new HashMap<>();
         SnackTypes.put("french fries", 4.0);
         SnackTypes.put("potato fries", 6.0);
         SnackTypes.put("apple slices", 3.0);
-        sidesByName.put("snacks", SnackTypes);
+        snackByName.put("snacks", SnackTypes);
 
-
+        for (var v : snackByName.entrySet()) {
+            for (var pricesByTypes : v.getValue().entrySet()) {
+                snack.add(new Snack(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
+                sides.add(new Sides(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {
+                });
+            }
+        }
 
     }
 
     public void order(String name, String type) {
         int valid = 0;
-        for (int i = 0; i < dishes.size(); i++) {
-            if ((dishes.get(i).getName()) == name && (dishes.get(i).getType()) == type) {
+        for (Dish dish : dishes) {
+            if ((dish.getName()) == name && (dish.getType()) == type) {
                 askClientName();
                 setOrderNumber();
                 setCurrentDateAndTime();
-                recipe(dishes.get(i).getName(), dishes.get(i).getType());
+                setTotalPrice(dish.getPrice());
+                recipe(dish.getName(), dish.getType());
                 valid++;
             }
         }
         if (valid != 1) {
-            System.out.println("you entered unvalid shit");
+            System.out.println("you entered invalid");
+        }
+    }
+
+    public void order(String mainDish, String dishType, String snacks, String snackType, String beverages, String beveragesType) {
+        int valid = 0;
+
+        for (MainDish dish : mainDishes) {
+            if ((dish.getName()) == mainDish && (dish.getType()) == dishType) {
+                addToTotalPrice(dish.getPrice());
+                valid++;
+            }
+
+        }
+
+        for (Snack snack : snack) {
+            if ((snack.getName()) == snacks && (snack.getType()) == snackType) {
+                addToTotalPrice(snack.getPrice());
+                valid++;
+            }
+
+        }
+
+        for (Beverages beverages1 : beverage) {
+            if ((beverages1.getName()) == beverages && (beverages1.getType()) == beveragesType) {
+                valid++;
+            }
+        }
+
+        if (valid == 3) {
+            askClientName();
+            setOrderNumber();
+            setCurrentDateAndTime();
+            recipe(mainDish, dishType, snacks, snackType, beverages, beveragesType);
+        } else {
+            System.out.println("you entered invalid");
         }
     }
 
@@ -109,7 +184,20 @@ public class SelfServicesMechanic {
         System.out.println("1 x " + name + " type:" + type);
         System.out.println("THE TOTAL PRICE IS " + totalPrice + "$");
         System.out.println("---------------------------------");
+    }
 
+    public void recipe(String mainDish, String dishType, String snacks, String snackType, String beverages, String beveragesType) {
+        //TODO make GUI
+        System.out.println("ORDER NUMBER - " + orderNumber);
+        System.out.println("---------------------------------");
+        System.out.println("client name - " + clientName);
+        System.out.println("time of deal - " + currentDateAndTime);
+        System.out.println("ordering details - ");
+        System.out.println("1 x " + mainDish + " type:" + dishType);
+        System.out.println("1 x " + snacks + " type:" + snackType);
+        System.out.println("1 x " + beverages + " type:" + beveragesType);
+        System.out.println("THE TOTAL PRICE IS " + totalPrice + "$");
+        System.out.println("---------------------------------");
     }
 
     //TODO make it so that there is no way that two same order number
@@ -125,6 +213,10 @@ public class SelfServicesMechanic {
 
     public void setTotalPrice(double price) {
         totalPrice = price;
+    }
+
+    public void addToTotalPrice(double price) {
+        totalPrice += price;
     }
 
     public void setCurrentDateAndTime() {
