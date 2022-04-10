@@ -113,7 +113,6 @@ public class SelfServicesMechanic {
                 sides.add(new Sides(v.getKey(), pricesByTypes.getKey(), (pricesByTypes.getValue())) {});
             }
         }
-
     }
 
     /**
