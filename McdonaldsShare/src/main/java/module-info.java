@@ -6,7 +6,7 @@ module McdonaldsShare {
 
 
    exports com.myProject.SelfServicesMechin;
-   exports com.myProject.BeveragesAndSides;
+   exports com.myProject.Meal.BeveragesAndSides;
 
 
 }

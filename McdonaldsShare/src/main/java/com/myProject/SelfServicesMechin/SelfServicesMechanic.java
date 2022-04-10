@@ -1,8 +1,8 @@
 package com.myProject.SelfServicesMechin;
 
-import com.myProject.BeveragesAndSides.Beverages;
-import com.myProject.BeveragesAndSides.Sides;
-import com.myProject.BeveragesAndSides.Snack;
+import com.myProject.Meal.BeveragesAndSides.Beverages;
+import com.myProject.Meal.BeveragesAndSides.Sides;
+import com.myProject.Meal.BeveragesAndSides.Snack;
 import com.myProject.IndividualDishes.Dessert;
 import com.myProject.IndividualDishes.Dish;
 import com.myProject.IndividualDishes.MainDish;

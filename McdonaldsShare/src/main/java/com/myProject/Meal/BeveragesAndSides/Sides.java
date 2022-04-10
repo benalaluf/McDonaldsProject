@@ -1,4 +1,4 @@
-package com.myProject.BeveragesAndSides;
+package com.myProject.Meal.BeveragesAndSides;
 
 public abstract class Sides {
 

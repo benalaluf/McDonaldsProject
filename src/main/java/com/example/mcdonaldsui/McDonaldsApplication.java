@@ -1,14 +1,7 @@
 package com.example.mcdonaldsui;
 
-import com.myProject.IndividualDishes.Dessert;
-import com.myProject.IndividualDishes.Dish;
-import com.myProject.IndividualDishes.MainDish;
-import com.myProject.Meal.Main;
-import com.myProject.Meal.Meal;
-import com.myProject.Meal.MealBase;
 import com.myProject.SelfServicesMechin.SelfServicesMechanic;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

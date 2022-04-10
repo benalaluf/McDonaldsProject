@@ -1,7 +1,7 @@
 package com.myProject.Meal;
 
-import com.myProject.BeveragesAndSides.Beverages;
-import com.myProject.BeveragesAndSides.Snack;
+import com.myProject.Meal.BeveragesAndSides.Beverages;
+import com.myProject.Meal.BeveragesAndSides.Snack;
 import com.myProject.IndividualDishes.MainDish;
 
 public class MealBase implements Meal {
@@ -10,6 +10,7 @@ public class MealBase implements Meal {
     private final Snack snack;
     private final Beverages beverages;
 
+    //TODO make meal size function
     //meal size multiply value
     private final double regularMealMultiply = 1;
     private final double bigMealMultiply = 1.3;
