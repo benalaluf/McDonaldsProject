@@ -179,6 +179,7 @@ public class SelfServicesMechanic {
 
         for (Beverages beverages1 : beverage) {
             if ((beverages1.getName()) == beverages && (beverages1.getType()) == beveragesType) {
+                addToTotalPrice(beverages1.getPrice());
                 valid++;
             }
         }
@@ -194,6 +195,7 @@ public class SelfServicesMechanic {
     }
 
     public void recipe(String name, String type) {
+
         //TODO make GUI
         System.out.println("ORDER NUMBER - " + orderNumber);
         System.out.println("---------------------------------");
@@ -206,15 +208,35 @@ public class SelfServicesMechanic {
     }
 
     public void recipe(String mainDish, String dishType, String snacks, String snackType, String beverages, String beveragesType) {
+        double[] price = new double[3];
+        for (MainDish dish : mainDishes) {
+            if ((dish.getName()) == mainDish && (dish.getType()) == dishType) {
+                price[0] = dish.getPrice();
+            }
+
+        }
+
+        for (Snack snack : snack) {
+            if ((snack.getName()) == snacks && (snack.getType()) == snackType) {
+                price[1] = snack.getPrice();
+            }
+
+        }
+
+        for (Beverages beverages1 : beverage) {
+            if ((beverages1.getName()) == beverages && (beverages1.getType()) == beveragesType) {
+                price[2] = beverages1.getPrice();
+            }
+        }
         //TODO make GUI
         System.out.println("ORDER NUMBER - " + orderNumber);
         System.out.println("---------------------------------");
         System.out.println("client name - " + clientName);
         System.out.println("time of deal - " + currentDateAndTime);
         System.out.println("ordering details - ");
-        System.out.println("1 x " + mainDish + " type:" + dishType);
-        System.out.println("1 x " + snacks + " type:" + snackType);
-        System.out.println("1 x " + beverages + " type:" + beveragesType);
+        System.out.println("1 x " + mainDish + " type:" + dishType + " " + price[0] + "$");
+        System.out.println("1 x " + snacks + " type:" + snackType + " " + price[1] + "$");
+        System.out.println("1 x " + beverages + " type:" + beveragesType + " " + price[2] + "$");
         System.out.println("THE TOTAL PRICE IS " + totalPrice + "$");
         System.out.println("---------------------------------");
     }
