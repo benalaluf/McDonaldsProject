@@ -1,0 +1,70 @@
+[
+  {
+    "burgers": {
+      "cheeseBurger": {
+        "double": 14.88,
+        "regular": 8
+      },
+      "bigMac": {
+        "double": 24.5,
+        "regular": 14.8
+      },
+      "hamburger": 4
+    },
+    "chickenAndSandwiches": {
+      "mcNuggets": {
+        "spicy": {
+          "4": 5.5,
+          "6": 7,
+          "20": 12,
+          "10": 8.75
+        },
+        "regular": {
+          "4": 5,
+          "6": 6,
+          "20": 10,
+          "10": 7.5
+        }
+      },
+      "crispyChickenSandwich": {
+        "deluxeCrispyChickenSandwich": {
+          "spicy": 17.69,
+          "regular": 15.42
+        },
+        "regularCrispyChickenSandwich": {
+          "spicy": 10.69,
+          "regular": 8.42
+        }
+      }
+    },
+    "desserts": {
+      "shake": {
+        "strawberry": 6,
+        "chocolate": 7,
+        "vanilla": 6.5
+      },
+      "mcFlurry": {
+        "oreo": 6,
+        "mnm": 5.5
+      },
+      "backedApplePie": 1.99,
+      "vanillaCone": 1,
+      "sundae": {
+        "hotFudge": 4.3,
+        "hotCaramel": 4
+      }
+    },
+    "beverages": {
+      "drPepper": 3,
+      "cocaCola": 4,
+      "sprite": 4,
+      "fanta": 4,
+      "water": 2
+    },
+    "sides": {
+      "frenchFries": 3.3,
+      "potato": 4.5,
+      "appleSlices": 2.2
+    }
+  }
+]
