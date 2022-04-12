@@ -50,10 +50,12 @@ public class SelfServicesMechanic {
         mainDishByName.put("mcNuggets", mcNuggetsTypes);
 
         HashMap<String, Double> mcBurgerTypes = new HashMap<>();
-        mcBurgerTypes.put("bigMac", 6.0);
+        mcBurgerTypes.put("bigMac", 9.0);
         mcBurgerTypes.put("doubleBigMac", 8.0);
-        mcBurgerTypes.put("cheeseBurger", 5.0);
+        mcBurgerTypes.put("cheeseBurger", 8.5);
         mainDishByName.put("mcBurger", mcBurgerTypes);
+
+
 
         for (var v : mainDishByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
@@ -65,7 +67,7 @@ public class SelfServicesMechanic {
         //desserts
         HashMap<String, Double> vanillaConeTypes = new HashMap<>();
         vanillaConeTypes.put("regular", 1.0);
-        dessertsByName.put("vanilla cone", vanillaConeTypes);
+        dessertsByName.put("vanillaCone", vanillaConeTypes);
 
         HashMap<String, Double> mcFlurryTypes = new HashMap<>();
         mcFlurryTypes.put("oreo", 3.5);
@@ -76,7 +78,7 @@ public class SelfServicesMechanic {
         ShakeTypes.put("strawBerry", 5.0);
         ShakeTypes.put("chocolate", 5.0);
         ShakeTypes.put("vanilla", 5.0);
-        dessertsByName.put("Shake", ShakeTypes);
+        dessertsByName.put("shake", ShakeTypes);
 
         for (var v : dessertsByName.entrySet()) {
             for (var pricesByTypes : v.getValue().entrySet()) {
@@ -103,7 +105,7 @@ public class SelfServicesMechanic {
         //snacks
         HashMap<String, Double> SnackTypes = new HashMap<>();
         SnackTypes.put("french fries", 4.0);
-        SnackTypes.put("potato fries", 6.0);
+        SnackTypes.put("potato", 6.0);
         SnackTypes.put("apple slices", 3.0);
         snackByName.put("snacks", SnackTypes);
 
