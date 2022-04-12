@@ -117,6 +117,8 @@ public class SelfServicesMechanic {
         }
     }
 
+    //TODO read the file that just got added the menu.json
+
     /**
      * //TODO
      * new idea make order inner class
