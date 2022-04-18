@@ -16,9 +16,9 @@ import java.util.Objects;
 public class McDonaldsApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ben.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ben.fxml")));
         stage.setTitle("McDonalds");
-        stage.setScene(new Scene(root,420,420));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
