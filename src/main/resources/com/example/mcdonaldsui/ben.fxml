@@ -1,30 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="731.0" prefWidth="659.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="661.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mcdonaldsui.McDonaldsController">
    <children>
-      <Button alignment="BOTTOM_CENTER" layoutX="445.0" layoutY="223.0" mnemonicParsing="false" prefHeight="199.0" prefWidth="200.0" text="chicken">
+      <Button alignment="BOTTOM_CENTER" layoutX="440.0" layoutY="218.0" mnemonicParsing="false" prefHeight="165.0" prefWidth="84.0" textFill="#c31616">
          <font>
             <Font name="Verdana Bold Italic" size="22.0" />
-         </font></Button>
-      <Text fill="#dd0606" layoutX="129.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MCDONALDS" wrappingWidth="395.65234375">
+         </font>
+         <graphic>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" text="mcNuggets" textAlignment="JUSTIFY">
+               <graphic>
+                  <ImageView fx:id="nuggets" fitHeight="173.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@mcNuggets.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Verdana Bold Italic" size="25.0" />
+               </font>
+            </Label>
+         </graphic></Button>
+      <Text fill="#dd0606" layoutX="132.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MCDONALDS" wrappingWidth="395.65234375">
          <font>
             <Font name="Verdana Bold Italic" size="52.0" />
          </font>
       </Text>
-      <Button alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="223.0" mnemonicParsing="false" prefHeight="199.0" prefWidth="200.0" text="desserts" textAlignment="JUSTIFY">
+      <Button alignment="BOTTOM_CENTER" layoutY="218.0" mnemonicParsing="false" prefHeight="210.0" prefWidth="221.0" textAlignment="JUSTIFY">
          <font>
             <Font name="Verdana Bold Italic" size="22.0" />
          </font>
+         <graphic>
+            <Label contentDisplay="TOP" prefHeight="174.0" prefWidth="180.0" text="desserts">
+               <font>
+                  <Font name="Verdana Bold Italic" size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="195.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@vanillaCone.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </graphic>
       </Button>
-      <Button alignment="BOTTOM_CENTER" layoutX="230.0" layoutY="223.0" mnemonicParsing="false" prefHeight="199.0" prefWidth="200.0" text="burgers">
+      <Button alignment="BOTTOM_CENTER" layoutX="225.0" layoutY="218.0" mnemonicParsing="false" prefHeight="210.0" prefWidth="210.0">
          <font>
             <Font name="Verdana Bold Italic" size="22.0" />
          </font>
+         <graphic>
+            <Label contentDisplay="TOP" text="mcBurger">
+               <font>
+                  <Font name="Verdana Bold Italic" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@mcBurgger.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </graphic>
       </Button>
+      <Slider layoutX="139.0" layoutY="551.0" prefHeight="123.0" prefWidth="382.0" />
+      <ProgressIndicator layoutX="26.0" layoutY="458.0" prefHeight="63.0" prefWidth="52.0" progress="0.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fill="#e81b1b" layoutX="139.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="by.ben">
+         <font>
+            <Font name="Apple Braille" size="17.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
