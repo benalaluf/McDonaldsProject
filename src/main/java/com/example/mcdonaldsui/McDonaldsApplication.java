@@ -30,7 +30,7 @@ public class McDonaldsApplication extends Application {
 
 
     public static void main(String[] args) {
-       //launch();
+       launch();
         SelfServicesMechanic selfServicesMechanic = new SelfServicesMechanic();
         selfServicesMechanic.load();
 
